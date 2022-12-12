@@ -29,7 +29,6 @@ cur_path = base_path + os.sep+ 'modules' + os.sep + 'Process_Manager' + os.sep +
 if cur_path not in sys.path:
    sys.path.append(cur_path)
 
-
 try:
     global process_manager
 
