@@ -145,13 +145,6 @@ try:
 
         session = process_manager.session
 
-        for key, value in attribute.items():
-            att_name = key
-            att_value = value
-            
-        attribute = {"name":att_name, "value": att_value}
-
-
         res = process_manager.service.startProcessWithAttributes(
             session=session, 
             mnemonic=mnemonic, 
