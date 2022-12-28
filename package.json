@@ -1,10 +1,10 @@
 {
     "author": "Rocketbot",
-    "description": "Web service of Process Manager",
+    "description": "Process Manager is the BPMS module that allows you to manage the survey, modeling, simulation, design, automation and improvement of business processes of the Suite SA platform.",
     "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "MIT",
-    "homepage": "http://rocketbot.co/",
+    "homepage": "http://rocketbot.com/",
     "name": "Process_Manager",
     "linux": true,
     "windows": true,
@@ -45,14 +45,34 @@
                     {
                         "type": "input",
                         "placeholder": {
+                            "es": "https://example.interact.com/sa/ws/bpm",
+                            "en": "https://example.interact.com/sa/ws/bpm",
+                            "pr": "https://example.interact.com/sa/ws/bpm"
+                        },
+                        "title": {
+                            "es": "URL del servidor",
+                            "en": "Server URL",
+                            "pr": "URL do servidor"
+                        },
+                        "description": {
+                            "es": "URL del servidor de Process Manager",
+                            "en": "Process Manager server URL",
+                            "pr": "URL do servidor do Process Manager"
+                        },
+                        "id": "url",
+                        "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
                             "es": "84093009-1732-skl5-bd72-111f0ca3719d",
                             "en": "84093009-1732-skl5-bd72-111f0ca3719d",
                             "pr": "84093009-1732-skl5-bd72-111f0ca3719d"
                         },
                         "title": {
-                            "es": "contract",
-                            "en": "contract",
-                            "pr": "contrato"
+                            "es": "Contract",
+                            "en": "Contract",
+                            "pr": "Contract"
                         },
                         "description": {
                             "es": "Contrato de la aplicación",
@@ -60,6 +80,26 @@
                             "pr": "Contrato do aplicativo"
                         },
                         "id": "contract",
+                        "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "ws.bpm",
+                            "en": "ws.bpm",
+                            "pr": "ws.bpm"
+                        },
+                        "title": {
+                            "es": "Service",
+                            "en": "Service",
+                            "pr": "Service"
+                        },
+                        "description": {
+                            "es": "Servicio de la aplicación",
+                            "en": "Application service",
+                            "pr": "Serviço do aplicativo"
+                        },
+                        "id": "service",
                         "css": "col-md-6"
                     },
                     {
@@ -100,6 +140,46 @@
                             "pr": "Secret do aplicativo"
                         },
                         "id": "secret",
+                        "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "SERIAL DEL PROCESO: NEMOTÉCNICO DE LA TAREA",
+                            "en": "PROCESS SERIAL: TASK NEMOTECNIC",
+                            "pr": "SERIAL DO PROCESSO: NEMOTÉCNICO DA TAREFA"
+                        },
+                        "title": {
+                            "es": "Tarea",
+                            "en": "Task",
+                            "pr": "Tarefa"
+                        },
+                        "description": {
+                            "es": "",
+                            "en": "Application secret",
+                            "pr": "Secret do aplicativo"
+                        },
+                        "id": "task",
+                        "css": "col-md-6"
+                    },
+                    {
+                        "type": "input",
+                        "placeholder": {
+                            "es": "Usuario",
+                            "en": "User",
+                            "pr": "Usuário"
+                        },
+                        "title": {
+                            "es": "Usuario",
+                            "en": "User",
+                            "pr": "Usuário"
+                        },
+                        "description": {
+                            "es": "Usuario de la aplicación",
+                            "en": "Application user",
+                            "pr": "Usuário do aplicativo"
+                        },
+                        "id": "user",
                         "css": "col-md-6"
                     },
                     {
@@ -250,12 +330,12 @@
                         },
                         "title": {
                             "es": "Mnemonico",
-                            "en": "Mneonic",
+                            "en": "Mnemonic",
                             "pr": "Mnemônico"
                         },
                         "description": {
                             "es": "Mnemonico del proceso a iniciar",
-                            "en": "Mneonic of the process to start",
+                            "en": "Mnemonic of the process to start",
                             "pr": "Mnemônico do processo a iniciar"
                         },
                         "id": "mnemonic",
@@ -352,12 +432,12 @@
                         },
                         "title": {
                             "es": "Mnemonico",
-                            "en": "Mneonic",
+                            "en": "Mnemonic",
                             "pr": "Mnemônico"
                         },
                         "description": {
                             "es": "Mnemonico del proceso a iniciar",
-                            "en": "Mneonic of the process to start",
+                            "en": "Mnemonic of the process to start",
                             "pr": "Mnemônico do processo a iniciar"
                         },
                         "id": "mnemonic",
@@ -386,14 +466,14 @@
                     {
                         "type": "input",
                         "placeholder": {
-                            "es": "name, value",
-                            "en": "name, value",
-                            "pr": "nome, valor"
+                            "es": "{\"name\": \"value\"}",
+                            "en": "{\"name\": \"value\"}",
+                            "pr": "{\"name\": \"value\"}"
                         },
                         "title": {
-                            "en": "Attribute",
-                            "es": "Atributo",
-                            "pr": "Atributo" 
+                            "en": "Name and value of the attribute",
+                            "es": "Nombre y valor del atributo",
+                            "pr": "Nome e valor do atributo" 
                         },
                         "description": {
                             "es": "Nombre y valor del atributo que se va a iniciar",
@@ -401,9 +481,9 @@
                             "pr": "Nome e valor do atributo que será iniciado"
                         },
                         "help": {
-                            "es": "Nombre y valor separados por coma",
-                            "en": "Name and value separated by comma",
-                            "pr": "Nome e valor separados por vírgula"
+                            "es": "Nombre y valor en formato dict",
+                            "en": "Name and value in dict format",
+                            "pr": "Nome e valor em formato dict"
                         },
                         "id": "attribute",
                         "css": "col-md-6"

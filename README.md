@@ -1,8 +1,8 @@
 # Process Manager
   
-Web service of Process Manager  
+Process Manager is the BPMS module that allows you to manage the survey, modeling, simulation, design, automation and improvement of business processes of the Suite SA platform.  
 
-*Read this in other languages: [English](README.md), [Español](README.es.md), [Portugues](README.pr.md).*
+*Read this in other languages: [English](README.md), [Español](README.es.md), [Português](README.pr.md).*
 
 ## How to install this module
   

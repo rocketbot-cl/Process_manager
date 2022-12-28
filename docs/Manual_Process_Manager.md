@@ -1,8 +1,8 @@
 # Process Manager
   
-Web service of Process Manager  
+Process Manager is the BPMS module that allows you to manage the survey, modeling, simulation, design, automation and improvement of business processes of the Suite SA platform.  
 
-*Read this in other languages: [English](Manual_Process_Manager.md), [Español](Manual_Process_Manager.es.md), [Portugues](Manual_Process_Manager.pr.md).*
+*Read this in other languages: [English](Manual_Process_Manager.md), [Español](Manual_Process_Manager.es.md), [Português](Manual_Process_Manager.pr.md).*
   
 ![banner](imgs/Banner_Process_manager.png)
 ## How to install this module
@@ -18,9 +18,13 @@ __Download__ and __install__ the content in 'modules' folder in Rocketbot path
 Open a new session
 |Parameters|Description|example|
 | --- | --- | --- |
-|contract|Application contract|84093009-1732-skl5-bd72-111f0ca3719d|
+|Server URL|Process Manager server URL|https://example.interact.com/sa/ws/bpm|
+|Contract|Application contract|84093009-1732-skl5-bd72-111f0ca3719d|
+|Service|Application service|ws.bpm|
 |Application|Application name|RPA POC|
 |Secret|Application secret|CiFeHmGiDaHhPjPcKmJcDCBDscAsbObLlLlBoBbObAaAbAMjkCbJiHoAdIgMhEfIc|
+|Task|Application secret|PROCESS SERIAL: TASK NEMOTECNIC|
+|User|Application user|User|
 |Assign result to variable |Variable where the result will be saved|Variable|
 
 ### Abort instance
@@ -36,7 +40,7 @@ Abort the instance of a process
 Starts a Process
 |Parameters|Description|example|
 | --- | --- | --- |
-|Mneonic|Mneonic of the process to start|MnemoEx|
+|Mnemonic|Mnemonic of the process to start|MnemoEx|
 |Name|Name of the process instance to create|name|
 |Assign result to variable |Variable name where the result of the process execution will be saved|Variable|
 
@@ -45,9 +49,9 @@ Starts a Process
 Starts a Process with attributes sent by parameter
 |Parameters|Description|example|
 | --- | --- | --- |
-|Mneonic|Mneonic of the process to start|MnemoEx|
+|Mnemonic|Mnemonic of the process to start|MnemoEx|
 |Name|Name of the process instance to start|name|
-|Attribute|Name and value of the attribute to start|name, value|
+|Name and value of the attribute|Name and value of the attribute to start|{"name": "value"}|
 |Assign result to variable |Variable name where the result will be saved|Variable|
 
 ### Assume task
@@ -89,4 +93,3 @@ Change the attribute value of a process
 Close the current session
 |Parameters|Description|example|
 | --- | --- | --- |
-| - | - | - |
