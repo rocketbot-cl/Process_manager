@@ -35,17 +35,17 @@ try:
 
     class ProcessManager:
         
-        def __init__(self):
+        def __init__(self, url):
             from suds.client import Client
-            self.WSDL =  "https://latam.interact.com.br/sa/ws/bpm?wsdl"
+            self.WSDL =  url
             self.client = Client(self.WSDL)
             self.service = self.client.service
             self.session = ""
             self.close_session = self.service.closeSession
             
-        def open_session(self, contract, service, application, secret):
+        def open_session(self, contract, service, application, secret, task, user):
             print(self.ping())
-            self.session = self.service.openSession(contract=contract, service=service, application=application, secret=secret)
+            self.session = self.service.openSession(contract=contract, service=service, application=application, secret=secret, task=task, user=user)
             return self.session            
 
         def ping(self, message=None):
@@ -81,17 +81,33 @@ try:
     module = GetParams("module")
 
     if module == "open_session":
+        url = GetParams("url")
         contract = GetParams("contract")
+        service = GetParams("service")
         application = GetParams("application")
         secret = GetParams("secret")
+        task = GetParams("task")
+        user = GetParams("user")
         result = GetParams("result")
-
-        process_manager = ProcessManager()
+        
+        if url:
+            if not url.endswith("?wsdl"):
+                url = url + "?wsdl"
+        else:
+            url = "https://latam.interact.com.br/sa/ws/bpm?wsdl"
+            
+        if not service:
+            service = "ws.bpm"
+        
+        process_manager = ProcessManager(url)
         res = process_manager.open_session(
             contract=contract, 
-            service="ws.bpm", 
+            service=service, 
             application=application, 
-            secret=secret)
+            secret=secret,
+            task=task,
+            user=user
+            )
 
         if result:
             SetVar(result, res)
@@ -123,18 +139,17 @@ try:
 
     if module == "start_process_attribute":
         mnemonic = GetParams("mnemonic")
-        name = GetParams("name")
-        attribute = GetParams("attribute")
+        name_ = GetParams("name")
+        attribute = eval(GetParams("attribute"))
         result = GetParams("result")
 
         session = process_manager.session
-        att_name = eval(attribute)[0]
-        att_value = eval(attribute)[1]
 
         res = process_manager.service.startProcessWithAttributes(
             session=session, 
             mnemonic=mnemonic, 
-            attribute = {"name":att_name, "value": att_value}
+            attribute = attribute,
+            name=name_
             )
         if result:
             SetVar(result, res)
@@ -184,8 +199,4 @@ except Exception as e:
     PrintException()
     raise e
 
-data = {}
-data.update([[value[0], 0] for value in {variable}])
-for array in variable:
-    data[value] += array[1]
         
